@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hunter Edits | Video Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --bg: #ffffff;
@@ -21,7 +27,7 @@
 
       body {
         margin: 0;
-        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+        font-family: "Manrope", "Inter", "Segoe UI", Arial, sans-serif;
         background: var(--bg);
         color: var(--text);
       }
@@ -39,14 +45,18 @@
 
       .hero h1 {
         margin: 0;
+        font-family: "Cormorant Garamond", "Times New Roman", serif;
         font-size: clamp(2rem, 4vw, 3rem);
-        letter-spacing: 0.08em;
+        font-weight: 600;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
       }
 
       .hero p {
         margin: 0.9rem auto 0;
         max-width: 60ch;
+        font-size: 0.98rem;
+        letter-spacing: 0.03em;
         color: var(--muted);
         line-height: 1.6;
       }
@@ -70,7 +80,8 @@
       .section-title {
         margin: 0 0 1rem;
         font-size: 1.2rem;
-        letter-spacing: 0.16em;
+        font-weight: 600;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
         display: inline-block;
         padding-bottom: 0.4rem;
@@ -104,8 +115,10 @@
 
       .video-card-content h3 {
         margin: 0;
-        font-size: 1rem;
+        font-family: "Cormorant Garamond", "Times New Roman", serif;
+        font-size: 1.15rem;
         font-weight: 600;
+        letter-spacing: 0.05em;
       }
 
       .video-card-content p {
