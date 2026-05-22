@@ -145,11 +145,14 @@
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.04);
       }
 
-      .video-card iframe {
+      .video-frame {
         width: 100%;
         aspect-ratio: 16 / 9;
-        border: 0;
         display: block;
+      }
+
+      .video-card iframe {
+        border: 0;
       }
 
       .video-placeholder {
@@ -195,6 +198,7 @@
         <div class="video-grid wedding-scroll">
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1"
               title="Wedding Film Highlight 1"
               loading="lazy"
@@ -209,6 +213,7 @@
 
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/am2603_Jz_o?rel=0&modestbranding=1"
               title="Wedding Film Highlight 2"
               loading="lazy"
@@ -222,7 +227,9 @@
           </article>
 
           <article class="video-card">
-            <div class="video-placeholder">Third wedding film link pending</div>
+            <div class="video-frame video-placeholder" aria-label="Placeholder for upcoming wedding film video">
+              Third wedding film link pending
+            </div>
             <div class="video-card-content">
               <h3>Wedding Film Highlight 3</h3>
               <p>Add the third video URL to replace this placeholder.</p>
