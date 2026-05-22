@@ -119,25 +119,54 @@
         height: 2px;
       }
 
-      .video-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1rem;
+      .scroll-wrapper {
+        position: relative;
       }
 
-      .video-grid.wedding-scroll {
+      .scroll-controls {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .scroll-btn {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 1rem;
+        color: var(--text);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        transition: background 0.15s;
+        flex-shrink: 0;
+      }
+
+      .scroll-btn:hover {
+        background: var(--border);
+      }
+
+      .video-grid {
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        scrollbar-width: none;
+        padding-bottom: 0.25rem;
       }
 
-      .video-grid.wedding-scroll .video-card {
-        flex: 0 0 min(360px, 85vw);
-        scroll-snap-align: start;
+      .video-grid::-webkit-scrollbar {
+        display: none;
       }
 
       .video-card {
+        flex: 0 0 calc(50% - 0.5rem);
+        scroll-snap-align: start;
         border: 1px solid var(--border);
         border-radius: 14px;
         overflow: hidden;
@@ -154,33 +183,6 @@
       .video-card iframe {
         border: 0;
       }
-
-      .video-placeholder {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--placeholder-bg);
-        color: var(--muted);
-        font-size: 0.95rem;
-      }
-
-      .video-card-content {
-        padding: 0.85rem 0.95rem 1rem;
-      }
-
-      .video-card-content h3 {
-        margin: 0;
-        font-size: 1rem;
-        font-weight: 600;
-      }
-
-      .video-card-content p {
-        margin: 0.35rem 0 0;
-        font-size: 0.92rem;
-        color: var(--muted);
-      }
     </style>
   </head>
   <body>
@@ -195,108 +197,92 @@
 
       <section class="portfolio-section" aria-labelledby="wedding-films-heading">
         <h2 class="section-title" id="wedding-films-heading">Wedding Films</h2>
-        <div class="video-grid wedding-scroll">
-          <article class="video-card">
-            <iframe
-              class="video-frame"
-              src="https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1"
-              title="Wedding Film Highlight 1"
-              loading="lazy"
-              sandbox="allow-scripts allow-same-origin allow-presentation allow-fullscreen"
-              allowfullscreen
-            ></iframe>
-            <div class="video-card-content">
-              <h3>Golden Hour Ceremony</h3>
-              <p>Romantic, warm-toned highlight cut.</p>
-            </div>
-          </article>
-
+        <div class="scroll-controls">
+          <button class="scroll-btn" onclick="scrollGrid('wedding-grid', -1)" aria-label="Scroll left">&#8592;</button>
+          <button class="scroll-btn" onclick="scrollGrid('wedding-grid', 1)" aria-label="Scroll right">&#8594;</button>
+        </div>
+        <div class="video-grid" id="wedding-grid">
           <article class="video-card">
             <iframe
               class="video-frame"
               src="https://www.youtube.com/embed/am2603_Jz_o?rel=0&modestbranding=1"
-              title="Wedding Film Highlight 2"
+              title="Wedding Film Highlight"
               loading="lazy"
               sandbox="allow-scripts allow-same-origin allow-presentation allow-fullscreen"
               allowfullscreen
             ></iframe>
-            <div class="video-card-content">
-              <h3>Classic Vows Story</h3>
-              <p>Embedded from the provided second wedding film link.</p>
-            </div>
-          </article>
-
-          <article class="video-card">
-            <div class="video-frame video-placeholder">Third wedding film link pending</div>
-            <div class="video-card-content">
-              <h3>Wedding Film Highlight 3</h3>
-              <p>Add the third video URL to replace this placeholder.</p>
-            </div>
           </article>
         </div>
       </section>
 
       <section class="portfolio-section" aria-labelledby="vlogs-heading">
         <h2 class="section-title" id="vlogs-heading">Vlogs</h2>
-        <div class="video-grid">
+        <div class="scroll-controls">
+          <button class="scroll-btn" onclick="scrollGrid('vlogs-grid', -1)" aria-label="Scroll left">&#8592;</button>
+          <button class="scroll-btn" onclick="scrollGrid('vlogs-grid', 1)" aria-label="Scroll right">&#8594;</button>
+        </div>
+        <div class="video-grid" id="vlogs-grid">
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/I-GXK8LstFA"
               title="Vlog Edit 1"
               loading="lazy"
               allowfullscreen
             ></iframe>
-            <div class="video-card-content">
-              <h3>City Day Story</h3>
-              <p>Fast, upbeat cut with dynamic transitions.</p>
-            </div>
           </article>
 
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/a6dLCjgPqX8"
               title="Vlog Edit 2"
               loading="lazy"
               allowfullscreen
             ></iframe>
-            <div class="video-card-content">
-              <h3>Travel Montage</h3>
-              <p>Clean rhythm-driven vlog storytelling.</p>
-            </div>
           </article>
         </div>
       </section>
 
       <section class="portfolio-section" aria-labelledby="youtube-heading">
         <h2 class="section-title" id="youtube-heading">YouTube</h2>
-        <div class="video-grid">
+        <div class="scroll-controls">
+          <button class="scroll-btn" onclick="scrollGrid('youtube-grid', -1)" aria-label="Scroll left">&#8592;</button>
+          <button class="scroll-btn" onclick="scrollGrid('youtube-grid', 1)" aria-label="Scroll right">&#8594;</button>
+        </div>
+        <div class="video-grid" id="youtube-grid">
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/aqz-KE-bpKQ"
               title="YouTube Edit 1"
               loading="lazy"
               allowfullscreen
             ></iframe>
-            <div class="video-card-content">
-              <h3>Creator Feature</h3>
-              <p>Modern social edit with polished pacing.</p>
-            </div>
           </article>
 
           <article class="video-card">
             <iframe
+              class="video-frame"
               src="https://www.youtube.com/embed/5qap5aO4i9A"
               title="YouTube Edit 2"
               loading="lazy"
               allowfullscreen
             ></iframe>
-            <div class="video-card-content">
-              <h3>Lifestyle Episode</h3>
-              <p>Balanced cinematic style for long-form content.</p>
-            </div>
           </article>
         </div>
       </section>
     </main>
+
+    <script>
+      function scrollGrid(id, direction) {
+        const grid = document.getElementById(id);
+        const card = grid.querySelector('.video-card');
+        if (!card) return;
+        const gap = parseFloat(getComputedStyle(grid).gap) || 0;
+        const scrollAmount = (card.offsetWidth + gap) * 2 * direction;
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    </script>
   </body>
 </html>
