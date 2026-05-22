@@ -12,6 +12,7 @@
         --accent-teal: #2f8a91;
         --accent-plum: #7a5069;
         --border: #ece9e2;
+        --placeholder-bg: #f9f7f3;
         --rainbow-gradient: linear-gradient(
           90deg,
           #ff6eb4,
@@ -129,7 +130,6 @@
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.35rem;
       }
 
       .video-grid.wedding-scroll .video-card {
@@ -158,7 +158,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #f9f7f3;
+        background: var(--placeholder-bg);
         color: var(--muted);
         font-size: 0.95rem;
       }
@@ -222,9 +222,7 @@
           </article>
 
           <article class="video-card">
-            <div class="video-placeholder" role="img" aria-label="Placeholder card for a third wedding film video embed">
-              Third wedding film link pending
-            </div>
+            <div class="video-placeholder">Third wedding film link pending</div>
             <div class="video-card-content">
               <h3>Wedding Film Highlight 3</h3>
               <p>Add the third video URL to replace this placeholder.</p>
