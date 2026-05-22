@@ -124,6 +124,19 @@
         gap: 1rem;
       }
 
+      .video-grid.wedding-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.35rem;
+      }
+
+      .video-grid.wedding-scroll .video-card {
+        flex: 0 0 min(360px, 85vw);
+        scroll-snap-align: start;
+      }
+
       .video-card {
         border: 1px solid var(--border);
         border-radius: 14px;
@@ -137,6 +150,17 @@
         aspect-ratio: 16 / 9;
         border: 0;
         display: block;
+      }
+
+      .video-placeholder {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9f7f3;
+        color: var(--muted);
+        font-size: 0.95rem;
       }
 
       .video-card-content {
@@ -168,12 +192,13 @@
 
       <section class="portfolio-section" aria-labelledby="wedding-films-heading">
         <h2 class="section-title" id="wedding-films-heading">Wedding Films</h2>
-        <div class="video-grid">
+        <div class="video-grid wedding-scroll">
           <article class="video-card">
             <iframe
-              src="https://www.youtube.com/embed/ysz5S6PUM-U"
+              src="https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1"
               title="Wedding Film Highlight 1"
               loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-presentation allow-fullscreen"
               allowfullscreen
             ></iframe>
             <div class="video-card-content">
@@ -184,14 +209,22 @@
 
           <article class="video-card">
             <iframe
-              src="https://www.youtube.com/embed/jNQXAC9IVRw"
+              src="https://www.youtube.com/embed/am2603_Jz_o"
               title="Wedding Film Highlight 2"
               loading="lazy"
               allowfullscreen
             ></iframe>
             <div class="video-card-content">
               <h3>Classic Vows Story</h3>
-              <p>Elegant narrative pacing with emotional detail.</p>
+              <p>Embedded from the provided second wedding film link.</p>
+            </div>
+          </article>
+
+          <article class="video-card">
+            <div class="video-placeholder">Third wedding film link pending</div>
+            <div class="video-card-content">
+              <h3>Wedding Film Highlight 3</h3>
+              <p>Add the third video URL to replace this placeholder.</p>
             </div>
           </article>
         </div>
